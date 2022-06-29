@@ -7,14 +7,6 @@ $username = "mkadmin";
 $password = "M@int@N@nc3";
 $dbname = "register_db";
 
-// $username = "root";
-// $password = "root";
-// $dbname = "registration";
-
-// $username = "root";
-// $password = "";
-// $dbname = "register_db";
-
 // Create connection
 global $conn;
 $conn = new mysqli($serverip, $username, $password, $dbname);
@@ -132,6 +124,7 @@ $download = 1;
         }
     }
 
+    /* Mobile Responsiveness CSS */
     @media (max-width: 769px) {
 
         .carousel-control-prev,
@@ -139,6 +132,8 @@ $download = 1;
             display: none !important;
         }
 
+        /* Drivehub on the media heading */
+        /* This hides the desktop version of the heading while showing the mobile version */
         #media-heading-desktop {
             display: none;
         }
@@ -147,6 +142,10 @@ $download = 1;
             display: block !important;
         }
 
+        /* Drivehub on the media heading end */
+
+        /* Carousel for the media articles */
+        /* This hides the desktop version of the carousel while showing the mobile version */
         #carousel-desktop {
             display: none;
         }
@@ -155,9 +154,10 @@ $download = 1;
             display: block !important;
         }
 
-        #biyahe-desktop {
-            display: none;
-        }
+        /* Carousel for the media articles end*/
+
+        /* Sarap ng Biyahe Placeholder */
+        /* This hides the desktop version of the placeholder while showing the mobile version */
 
         #video_desktop {
             display: none;
@@ -167,19 +167,11 @@ $download = 1;
             display: block !important;
         }
 
+        /* Sarap ng Biyahe Placeholder end*/
+
         #download {
             background-image: url('assets/img/DH_GET_APP_NOW_MOBILE.png') !important;
             margin-top: 0rem !important;
-        }
-
-        #biyahe-mobile {
-            display: block !important;
-            width: 30vh !important;
-        }
-
-        #biyahe-mobile-image {
-            margin-bottom: 40px;
-            width: 30vh;
         }
 
         .masthead {
@@ -203,6 +195,8 @@ $download = 1;
             font-size: 17px
         }
 
+        /* App Download Section */
+        /* This hides the desktop version of the app download section while showing the mobile version */
         .mobile-download {
             display: block !important;
         }
@@ -210,6 +204,8 @@ $download = 1;
         .desktop-download {
             display: none !important;
         }
+
+        /* App Download Section end*/
     }
 
     @media (max-width: 280px) {
@@ -220,15 +216,11 @@ $download = 1;
 
 
     #main_header {
-        /* border: 1px solid black; */
         height: 100%;
-        /* background-image: url('assets/img/header.png'); */
         background-position: center;
         background-size: 100%;
         background-repeat: no-repeat;
-        /* background-attachment: absolute; */
         background-color: #f8f9fa;
-        /* margin-top: 4rem; */
 
     }
 
@@ -426,7 +418,6 @@ $download = 1;
                         <div class="col-11">
                             The only app that can compute your toll fee from the toll plaza you’re coming from, to where you’re exiting.
                         </div>
-
                     </div>
                 </div>
                 <div class="col-md-6 col-12" style="margin-bottom: 40px;">
@@ -443,13 +434,6 @@ $download = 1;
                         <div class="col-11">
                             Anticipate traffic conditions on your way
                         </div>
-                        <!-- <div class="col-1">
-                            <i class="fa-solid fa-circle-check bullet-point-check"></i>
-                        </div>
-                        <div class="col-11">
-                            Cut your travel time with our live traffic advisory
-                        </div> -->
-
                     </div>
                 </div>
                 <div class="col-md-6 col-12" style="margin-bottom: 40px;">
@@ -506,6 +490,8 @@ $download = 1;
     <section id="download">
 
         <div class="desktop-download" style="height: 35vw; padding-left: 7vw">
+            <?php // The vaiable for setting $downlad is at the top of the page. 
+            ?>
             <?php if ($download == 1) { ?>
                 <div class="row" style="padding-top: 17vw; ">
                     <div class="row col-md-6">
@@ -578,10 +564,19 @@ $download = 1;
     </section>
 
     <?php
+    //The query for checking the articles and what to show on the front end of the website
+    //p_id - Article ID
+    // p_title - The title of the article
+    // p_link - The link of the media provider for the article
+    // p_image - The filename of the media provider's logo
+    // p_hide - If null, it will show the provider
+    // p_order - The order to which the media articles will be shown in the carousel 
 
     $query1 = "select * from posts where p_hide is null
     order by p_order, p_id;";
+    // For the desktop version
     $exec1 = mysqli_query($conn, $query1);
+    // For the mobile version
     $exec2 = mysqli_query($conn, $query1);
 
     ?>
@@ -749,10 +744,6 @@ $download = 1;
         </div>
 
     </section>
-
-
-
-
 
     <section id="faq" style="background-color: white; margin-top: -80px">
         <div class="container">
@@ -1023,12 +1014,14 @@ $download = 1;
 
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <!-- Animate on Scroll js for the animations -->
+    <!-- Reference: https://michalsnik.github.io/aos/ -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initializer for Animate on Scroll
         AOS.init();
     </script>
     <?php
-
     include "assets/include.php";
 
     ?>
