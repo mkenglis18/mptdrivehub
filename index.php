@@ -634,12 +634,12 @@ $download = 1;
                                 <?php }
 
                             $ctr++;
-
                                 ?>
 
                                 <div class="col-md-3 mb-3">
                                     <a href="<?php echo $i1->p_link ?>" target="_blank">
                                         <div class="card">
+                                            <!-- Images that are being used here are found on "assets/post" folder -->
                                             <img class="media-image" src="assets/post/<?php echo $i1->p_image ?>" alt="..." style="width: 100%" />
                                             <div class="card-body">
                                                 <h5 class="media-heading"><?php echo $i1->p_title ?></h5>
@@ -688,6 +688,7 @@ $download = 1;
                         <div class="carousel-item <?php echo $active ?>">
                             <a href="<?php echo $i2->p_link ?>" target="_blank">
                                 <div class="card">
+                                    <!-- Images that are being used here are found on "assets/post" folder -->
                                     <img class="media-image" src="assets/post/<?php echo $i2->p_image ?>" alt="..." style="width: 100%" />
                                     <div class="card-body">
                                         <h5 class="media-heading"><?php echo $i2->p_title ?></h5>
