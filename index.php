@@ -3,9 +3,9 @@
 $serverip = "localhost";
 
 //Live Connection Credentials
-$username = "mkadmin";
+$username = "drivehubuser_user";
 $password = "M@int@N@nc3";
-$dbname = "register_db";
+$dbname = "drivehubuser_db";
 
 // Create connection
 global $conn;
